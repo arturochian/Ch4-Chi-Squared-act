@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Chi-Square Activity</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/png" href="favicon.ico">
+  <link  rel="stylesheet" 
+    href="http://netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css">
+  <link rel="stylesheet" href="libraries/frameworks/bootstrap3/css/bootstrap.min.css">
+  
+  <link rel="stylesheet" href="libraries/frameworks/bootstrap3/css/main.css">
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/github.css" />
+  <script src="libraries/frameworks/bootstrap3/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/frameworks/bootstrap3/js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+    <link rel=stylesheet href="libraries/widgets/quiz/css/demo.css"></link>
+<link rel=stylesheet href="libraries/widgets/bootstrap/css/bootstrap.css"></link>
+<link rel=stylesheet href="./assets/css/custom.css"></link>
+<link rel=stylesheet href="./assets/css/moving_sidebar.css"></link>
+<link rel=stylesheet href="./assets/css/ribbons.css"></link>
+<link rel=stylesheet href="http://fonts.googleapis.com/css?family=Vollkorn"></link>
+<link rel=stylesheet href="http://fonts.googleapis.com/css?family=Droid%20Sans%20Mono"></link>
+
+  <script src="libraries/frameworks/bootstrap3/js/jquery.js"></script>
+  <script src="libraries/widgets/dimple/js/d3.v3.js"></script>
+<script src="libraries/widgets/dimple/js/dimple.v2.1.0.js"></script>
+
+</head>
+<body data-spy = "scroll" data-target = ".page-sidebar">
+   <!--[if lt IE 7]>
+     <p class="chromeframe">You are using an outdated browser. 
+       <a href="http://browsehappy.com/">Upgrade your browser today</a> or 
+       <a href="http://www.google.com/chromeframe/?redirect=true"> 
+         install Google Chrome Frame
+       </a> to better experience this site.
+    </p>
+   <![endif]-->
+
+  <div class="container-fluid">
+  
+  <a href=https://github.com/kferris10/testing-slidify><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
+
+  <div class = "row">
+
+    <div class="jumbotron">
+      <div class="container-fluid">
+        <h1>Chi-Square Activity</h1>
+        <h3>Ch 4 Chi-Square Testing</h3>
+        <h3>Stay 217</h3>
+        <h3> 2015-03-08 </h3>
+      </div>
+    </div>
+        
+    <div class = "row">
+      <div class = "container-fluid">
+    
+<!--
+SIDEBAR-NAV
+-->
+        <div class = "col-md-3 pull-right hidden-sm hidden-xs hidden-print page-sidebar affix-top">
+  			  <div class="container-fluid">
+					  <nav class = "sidebar-nav">
+						  <ul class = "nav affix-top" data-spy="affix" data-offset-top="250" data-offset-bottom="20" role = "navigation">
+                
+                <li><a href = "#slide-1"> Introduction</a></li>
+
+                <li><a href = "#slide-2"> Voting Data</a></li>
+
+                <li><a href = "#slide-3"> Cheating Data</a></li>
+
+                <li><a href = "#slide-4"> Mosaic Plots</a></li>
+
+                <li><a href = "#slide-5"> Take Home Question #1</a></li>
+
+                <li><a href = "#slide-6"> Hypothesis Tests</a></li>
+
+                <li><a href = "#slide-7"> Assumptions</a></li>
+
+                <li><a href = "#slide-8"> Expected Counts</a></li>
+
+                <li><a href = "#slide-9"> Assessing the Assumptions</a></li>
+
+                <li><a href = "#slide-10"> Contributions to the Test Statistic</a></li>
+
+                <li><a href = "#slide-11"> Testing Statistic, Distribution and P-value</a></li>
+
+                <li><a href = "#slide-12"> Take Home Question #2</a></li>
+
+                <li><a href = "#slide-13"> Permutation Distribution</a></li>
+
+                <li><a href = "#slide-14"> Take Home Question #3</a></li>
+
+                <li><a href = "#slide-15"> Take Home Question #4</a></li>
+
+                <li><a href = "#slide-16"> Examining the Residuals</a></li>
+
+                <li><a href = "#slide-17"> Conclusion</a></li>
+
+                <li><a href = "#slide-18"> Scope of Inference</a></li>
+
+                <li><a href = "#slide-19"> Additional Take Home Questions</a></li>
+						  </ul>
+					  </nav>
+				  </div>
+        </div>  <!-- end sidebar -->
+
+<!--
+PAGE CONTENT
+-->
+        <div class = "col-md-9 col-sm-12 push-left">
+          <div class="section" id="slide-1">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h2>Introduction</h2>
+    <hr>
+    </div>
+  <p>This activity works through Chapter 4.  It uses two datasets: the voting data (which we have covered in class) and the lying and cheating data from Section 4.9 of the book.  All tests will be done at the \(\alpha = 0.05\) significance level.</p>
+
+<p>There will be 8 questions for your to turn in.  Some are located throughout the activity and some are located at the end.</p>
+
+  </div>
+</div>
+<div class="section" id="slide-2">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h2>Voting Data</h2>
+    <hr>
+    </div>
+  <p>A national random sample was obtained related to the 2000 Presidential Election with the party affiliations and voting results recorded for each subject.  Information on 1151 people was recorded.  Since these people were selected from the entire population of voters, and independence test is appropriate.</p>
+
+<p>We will test at the \(\alpha\) = 0.05 significance level.  The contingency table is presented below.</p>
+
+<pre><code class="r">require(poLCA)
+data(election)  
+# remove missing data
+election2 &lt;- na.omit(election[, c(&quot;PARTY&quot;, &quot;VOTE3&quot;)])  
+# recoding the variables
+election2$VOTEF &lt;- factor(election2$VOTE3)
+levels(election2$VOTEF) &lt;- c(&quot;Gore&quot;, &quot;Bush&quot;, &quot;Other&quot;)
+# forming a contingency table
+require(mosaic)
+electable &lt;- tally(~PARTY + VOTEF, data = election2)
+electable
+</code></pre>
+
+<pre><code>#&gt;      VOTEF
+#&gt; PARTY Gore Bush Other
+#&gt;     1  238    6     2
+#&gt;     2  151   18     1
+#&gt;     3  113   31    13
+#&gt;     4   37   37    11
+#&gt;     5   21  124    12
+#&gt;     6   20  121     2
+#&gt;     7    3  189     1
+</code></pre>
+
+<p>Looking at the contingency table, it appears that people in Parties 1, 2, and 3 are much more likely to vote for Gore so these are probably the more liberal parties.</p>
+
+  </div>
+</div>
+<div class="section" id="slide-3">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h2>Cheating Data</h2>
+    <hr>
+    </div>
+  
+<div class="quiz quiz-single well ">
+  <p>The first data set we&#39;ll work with explores student behavior.  A survey of 319 randomly selected undergraduate students at a university were asked whether they had ever lied to avoid taking an exam and if they had lied to avoid handing a paper on time.  The results are summarized below in a contingency table.</p>
+
+<pre><code class="r">require(poLCA)
+require(mosaic)
+data(cheating)
+# turning the variables into factors
+cheating$LIEEXAM &lt;- factor(cheating$LIEEXAM, labels = c(&quot;no&quot;, &quot;yes&quot;))
+cheating$LIEPAPER &lt;- factor(cheating$LIEPAPER, labels = c(&quot;no&quot;, &quot;yes&quot;))
+lietable &lt;- tally(~LIEEXAM + LIEPAPER, data = cheating)
+lietable
+</code></pre>
+
+<pre><code>#&gt;        LIEPAPER
+#&gt; LIEEXAM  no yes
+#&gt;     no  265  20
+#&gt;     yes  16  18
+</code></pre>
+
+<p>Which type of test and which type of plot should be used?</p>
+
+<ol>
+<li>Independence; segmented bar chart</li>
+<li>Homogeneity; segmented bar chart</li>
+<li><em>Independence; mosaic plot</em></li>
+<li>Homogeneity; mosaic plot</li>
+</ol>
+
+  <button class="quiz-submit btn btn-primary">Submit</button>
+  <button class="quiz-toggle-hint btn btn-info">Show Hint</button>
+  <button class="quiz-show-answer btn btn-success">Show Answer</button>
+  <button class="quiz-clear btn btn-danger">Clear</button>
+  
+  <div class="quiz-hint">
+  <p>Were the subjects randomly selected from the entire population?  Or were subjects selected from within each group of students?</p>
+
+</div>
+<div class="quiz-explanation">
+  <p>A sample was drawn from the entire population of undergraduate students so an independence test should be used.</p>
+
+</div>
+</div>
+  </div>
+</div>
+<div class="section" id="slide-4">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h2>Mosaic Plots</h2>
+    <hr>
+    </div>
+  <h2>Plot for the Voting Data</h2>
+
+<p>A mosaic plot of the voting data is also shown below.  It appears that not all the same groups vote for the candidates with similar probabilities so party and vote are probably related.  Furthermore, we can see that parties 1, 2, and 3 were much more likely to vote for Gore.  Parties 5, 6, and 7 were much more likely to vote for Bush.  Almost all of the &quot;Other&quot; votes can from parties 3, 4, and 5.</p>
+
+<pre><code class="r">mosaicplot(electable)
+</code></pre>
+
+<p><img src="assets/fig/vote_plot-1.png" title="plot of chunk vote_plot" alt="plot of chunk vote_plot" style="display: block; margin: auto;" /></p>
+
+<h2>Plot for the Cheating Data</h2>
+
+<p>A mosaic plot of the cheating data is shown below.  </p>
+
+<pre><code class="r">mosaicplot(lietable)
+</code></pre>
+
+<p><img src="assets/fig/cheat_plot-1.png" title="plot of chunk cheat_plot" alt="plot of chunk cheat_plot" style="display: block; margin: auto;" /></p>
+
+  </div>
+</div>
+<div class="section" id="slide-5">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h2>Take Home Question #1</h2>
+    <hr>
+    </div>
+  <p>1) Use the mosaic plot to describe the cheating data.  Make sure that you note whether the two variables appear to be related.</p>
+
+  </div>
+</div>
+<div class="section" id="slide-6">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h2>Hypothesis Tests</h2>
+    <hr>
+    </div>
+  
+<div class="quiz quiz-single well ">
+  <h2>Hypotheses for Voting data</h2>
+
+<p>For the voting data, our hypotheses are:</p>
+
+<p>\(H_0:\) There is no relationship between party affiliation and voting status in the population</p>
+
+<p>\(H_A:\) There is a relationship between party affiliation and voting status in the population</p>
+
+<h2>Hypotheses for Cheating data</h2>
+
+<p>For the voting data, which is the correct null hypothesis (\(H_0\))?</p>
+
+<ol>
+<li>The true mean rate of lying on exams is the same for all types of students</li>
+<li><em>There is no relationship between lying on exams and lying on paper amongst undergradtuate students</em></li>
+<li>The true mean rate of lying on papers is the same for each undergraduate student</li>
+<li>None of the above</li>
+</ol>
+
+  <button class="quiz-submit btn btn-primary">Submit</button>
+  <button class="quiz-toggle-hint btn btn-info">Show Hint</button>
+  <button class="quiz-show-answer btn btn-success">Show Answer</button>
+  <button class="quiz-clear btn btn-danger">Clear</button>
+  
+  <div class="quiz-hint">
+  <p>Take a look back at the notes to see what the independence test is hypothesizing</p>
+
+</div>
+<div class="quiz-explanation">
+  <p>An independence test assumes that there is no relationship between the two variables in the population.</p>
+
+</div>
+</div>
+  </div>
+</div>
+<div class="section" id="slide-7">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h2>Assumptions</h2>
+    <hr>
+    </div>
+  
+<div class="quiz quiz-multiple well" data-individual>
+  <p>Which of the following are the correct assumptions for a Chi-Squared test?  Make sure you click &quot;Show Answer&quot; to check that you got all of them</p>
+
+<ol>
+<li><em>Independence</em></li>
+<li>Normality</li>
+<li>Equal Variance</li>
+<li><em>Both variables are categorical</em></li>
+<li>Any Expected Count</li>
+<li><em>Expected Counts \(> 5\) for a parametric test</em></li>
+<li><em>Expected Counts \(> 0\) for a non-parametric test</em></li>
+</ol>
+
+  <button class="quiz-submit btn btn-primary">Submit</button>
+  <button class="quiz-toggle-hint btn btn-info">Show Hint</button>
+  <button class="quiz-show-answer btn btn-success">Show Answer</button>
+  <button class="quiz-clear btn btn-danger">Clear</button>
+  
+  <div class="quiz-hint">
+  <p>Remember that both variables are categorical.  So normality and equal variance don&#39;t make sense for these data.</p>
+
+</div>
+<div class="quiz-explanation">
+  <p>Parametric tests make stronger assumptions than non-parametric tests so we need larger expected counts for a parametric test.</p>
+
+</div>
+</div>
+  </div>
+</div>
+<div class="section" id="slide-8">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h2>Expected Counts</h2>
+    <hr>
+    </div>
+  
+<div class="quiz-text quiz-multitext well">
+  <h2>Expected Counts for Voting Data</h2>
+
+<p>To find the expected counts for a cell under the null hypothesis, we multiply the row total (for that cell&#39;s row) by the column total and divide by the total sample size.  The contingency table for the cheating data is below.  The expected count for the number of people in Party 1 who voted for Gore is:</p>
+
+<p>\(\frac{n_{Party1.} * n_{.Gore}}{N} = \frac{246*583}{1151} \approx 125\)</p>
+
+<h2>Expected Counts for Cheating data</h2>
+
+<p>Here is the contingency table for the cheating data:</p>
+
+<pre><code class="r">tally(~LIEEXAM + LIEPAPER, data = cheating, margin = T)
+</code></pre>
+
+<pre><code>#&gt;        LIEPAPER
+#&gt; LIEEXAM  no yes Total
+#&gt;   no    265  20   285
+#&gt;   yes    16  18    34
+#&gt;   Total 281  38   319
+</code></pre>
+
+<p>What are the expected counts for the cells?  Round to the nearest whole number.</p>
+
+<ol>
+<li>No Lie Exam, No Lie Paper</li>
+<li>No Lie Exam, Did Lie Paper</li>
+<li>Did Lie Exam, Did Lie Paper</li>
+</ol>
+
+  <button class="quiz-submit btn btn-primary">Submit</button>
+  <button class="quiz-toggle-hint btn btn-info">Show Hint</button>
+  <button class="quiz-show-answer btn btn-success">Show Answer</button>
+  <button class="quiz-clear btn btn-danger">Clear</button>
+  
+  <div class="quiz-hint">
+  <p>Find the cell I&#39;m asking for, then use the row and column totals for that cell</p>
+
+</div>
+<div class="quiz-explanation">
+  <ol>
+<li><p><span class="answer">251</span>
+This is in the first row, first column so we do \(285*281/319 = 251\)$</p></li>
+<li><p><span class="answer">34</span>
+This is in the first row, second column so we do \(285*38/319 = 34\)</p></li>
+<li><p><span class="answer">4</span>
+This is in the fourth row, second column so we do \(34*38/319 = 4\)</p></li>
+</ol>
+
+</div>
+</div>
+  </div>
+</div>
+<div class="section" id="slide-9">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h2>Assessing the Assumptions</h2>
+    <hr>
+    </div>
+  
+<div class="quiz quiz-multiple well" data-individual>
+  <h2>Assumptions for Voting Data</h2>
+
+<p>There are assumptions we have to meet to perform a chi-square test.  For the voting data:</p>
+
+<p>1) Independence - Yes: a random sample was taken and there are no obvious lurking variables</p>
+
+<p>2) Categorical Variables - Yes: both variables are categorical</p>
+
+<p>3) Expected Counts - No: not all the expected counts are greater than 5 so the assumptions for the parametric chi-square test are not met (the assumptions for the non-parametric one are met though)</p>
+
+<pre><code class="r">chisq.test(electable)$expected
+</code></pre>
+
+<pre><code>#&gt;      VOTEF
+#&gt; PARTY  Gore  Bush Other
+#&gt;     1 124.6 112.4  8.98
+#&gt;     2  86.1  77.7  6.20
+#&gt;     3  79.5  71.7  5.73
+#&gt;     4  43.1  38.8  3.10
+#&gt;     5  79.5  71.7  5.73
+#&gt;     6  72.4  65.4  5.22
+#&gt;     7  97.8  88.2  7.04
+</code></pre>
+
+<h2>Assumptions for Cheating Data</h2>
+
+<p>Here is the table of expected counts for the cheating data.  Based on the description of the data and the table of expected counts below, which of the assumptions for a parametric test are met?</p>
+
+<pre><code class="r">chisq.test(lietable)$expected
+</code></pre>
+
+<pre><code>#&gt;        LIEPAPER
+#&gt; LIEEXAM    no   yes
+#&gt;     no  251.1 33.95
+#&gt;     yes  29.9  4.05
+</code></pre>
+
+<ol>
+<li><em>Independence</em></li>
+<li><em>Categorical Variables</em></li>
+<li>Expected Counts are greater than 5</li>
+<li>All of the assumptions are met</li>
+</ol>
+
+  <button class="quiz-submit btn btn-primary">Submit</button>
+  <button class="quiz-toggle-hint btn btn-info">Show Hint</button>
+  <button class="quiz-show-answer btn btn-success">Show Answer</button>
+  <button class="quiz-clear btn btn-danger">Clear</button>
+  
+  <div class="quiz-hint">
+  <p>You should get that three of the assumptions are met and that one is not.</p>
+
+</div>
+<div class="quiz-explanation">
+  <p>The Expected Counts are not all greater than 5 so the assumptions for a parametric test are not met.  As a result, we will use a non-parametric test.</p>
+
+</div>
+</div>
+  </div>
+</div>
+<div class="section" id="slide-10">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h2>Contributions to the Test Statistic</h2>
+    <hr>
+    </div>
+  
+<div class="quiz-text quiz-multitext well">
+  <p>To calculate the test statistic, we sum the contributions from each cell of the contingency table.  Recall that the contribution for a single cell is:</p>
+
+<p>\((\frac{observed - expected}{\sqrt{expected}})^2\)</p>
+
+<h2>Voting Contributions</h2>
+
+<p>The contribution for the Party1, Gore cell is:</p>
+
+<p>\((\frac{238 - 125}{\sqrt{125}})^2 \approx 102\)</p>
+
+<h2>Cheating Contributions</h2>
+
+<p>What are the contributions for the following cells?  Round to the nearest whole number.</p>
+
+<ol>
+<li>No Lie Exam, No Lie Paper</li>
+<li>Did Lie Exam, Did Lie Paper</li>
+</ol>
+
+  <button class="quiz-submit btn btn-primary">Submit</button>
+  <button class="quiz-toggle-hint btn btn-info">Show Hint</button>
+  <button class="quiz-show-answer btn btn-success">Show Answer</button>
+  <button class="quiz-clear btn btn-danger">Clear</button>
+  
+  <div class="quiz-hint">
+  <p>Use the observed and expected counts that we have previously found.</p>
+
+</div>
+<div class="quiz-explanation">
+  <ol>
+<li><p><span class="answer">1</span>
+\((\frac{265 - 251}{\sqrt{251}})^2 \approx 1\)</p></li>
+<li><p><span class="answer">49</span>
+\((\frac{18 - 4}{\sqrt{4}})^2 = 49\)</p></li>
+</ol>
+
+</div>
+</div>
+  </div>
+</div>
+<div class="section" id="slide-11">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h2>Testing Statistic, Distribution and P-value</h2>
+    <hr>
+    </div>
+  
+<div class="quiz-text quiz-multitext well">
+  <h2>Voting Data</h2>
+
+<p><strong>SUPER IMPORTANT NOTE:</strong> The assumptions for a parametric test are not met.  You should not trust the results from this test.  We are doing this <strong>FOR PRACTICE ONLY</strong>.  Ask if you are confused about this.</p>
+
+<p>We get a p-value of \(< 2.2*10^{-16}\) (test statistic of 764; following a \(\chi^2(12)\) under the null).</p>
+
+<pre><code class="r">chisq.test(electable)
+</code></pre>
+
+<pre><code>#&gt; 
+#&gt;  Pearson&#39;s Chi-squared test
+#&gt; 
+#&gt; data:  electable
+#&gt; X-squared = 764, df = 12, p-value &lt; 2.2e-16
+</code></pre>
+
+<h2>Cheating Data</h2>
+
+<p>Here&#39;s the output from a Chi-Squared Test.  Round your answers to one decimal place.</p>
+
+<pre><code class="r">chisq.test(lietable)
+</code></pre>
+
+<pre><code>#&gt; 
+#&gt;  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
+#&gt; 
+#&gt; data:  lietable
+#&gt; X-squared = 56.8, df = 1, p-value = 4.94e-14
+</code></pre>
+
+<ol>
+<li>What is the test statistic?</li>
+<li><strong>For a parametric test</strong>, what distribution does it follow under the null hypothesis?  Type 1 for a t-distribution, 2 for an F-distribution, 3 for a \(\chi^2\) distribution.</li>
+<li>How may degrees of freedom does this distribution have?</li>
+<li>What is the p-value <strong>for a parametric test</strong>?</li>
+</ol>
+
+  <button class="quiz-submit btn btn-primary">Submit</button>
+  <button class="quiz-toggle-hint btn btn-info">Show Hint</button>
+  <button class="quiz-show-answer btn btn-success">Show Answer</button>
+  <button class="quiz-clear btn btn-danger">Clear</button>
+  
+  <div class="quiz-hint">
+  <p>Match the output to each corresponding entry.  Don&#39;t forget what R means by <code>4.94e-14</code>.</p>
+
+</div>
+<div class="quiz-explanation">
+  <ol>
+<li><span class = "answer">56.8</span>
+The &quot;X-squared&quot; part tell us the test statistic.</li>
+<li><span class = "answer">3</span>
+This test uses a \(\chi^2\) distribution.</li>
+<li><span class = "answer">1</span>
+\(df = (#rows - 1) \times (#columns - 1) = (2-1) \times (2-1) = 1\)</li>
+<li><span class = "answer">0.0&lt;/span
+\(4.4 * 10^{-14} \approx 0\)</li>
+</ol>
+
+</div>
+</div>
+  </div>
+</div>
+<div class="section" id="slide-12">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h2>Take Home Question #2</h2>
+    <hr>
+    </div>
+  <p>2) Why is this a parametric test?</p>
+
+  </div>
+</div>
+<div class="section" id="slide-13">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h2>Permutation Distribution</h2>
+    <hr>
+    </div>
+  
+<div class="quiz-text quiz-multitext well">
+  <h2>Voting Data</h2>
+
+<p>Since the assumptions aren&#39;t met for a parametric test, we should perform a permutation test.  The following code constructs the permutation distribution for the voting data.</p>
+
+<pre><code class="r">B &lt;- 1000  # number of permutations
+Tstar &lt;- matrix(NA, ncol = 1, nrow = B)
+for(i in 1:B) {
+  # permuted the data set
+  permuted_voting &lt;- tally(~shuffle(VOTEF) + VOTEF, data = election2) 
+  # storing the permuted test statistic
+  Tstar[i] &lt;- chisq.test(permuted_voting)$statistic
+}
+hist(Tstar, main = &quot;Permutation Distribution for Voting Data&quot;, 
+     xlab = &quot;Permuted Test Statistics&quot;, xlim = c(0, 770))
+</code></pre>
+
+<p><img src="assets/fig/vote_dist-1.png" title="plot of chunk vote_dist" alt="plot of chunk vote_dist" style="display: block; margin: auto;" /></p>
+
+<p>We want to compare the observed test statistic to this distribution so we&#39;ll plot it in red.</p>
+
+<pre><code class="r">Tobs &lt;- chisq.test(electable)$statistic
+hist(Tstar, main = &quot;Permutation Distribution for Voting Data&quot;, 
+     xlab = &quot;Permuted Test Statistics&quot;, xlim = c(0, 770))
+abline(v = Tobs, col = &quot;red&quot;, lwd = 2)
+</code></pre>
+
+<p><img src="assets/fig/vote_dist_with_stat-1.png" title="plot of chunk vote_dist_with_stat" alt="plot of chunk vote_dist_with_stat" style="display: block; margin: auto;" /></p>
+
+<h2>Cheating Data</h2>
+
+<p>The assumptions aren&#39;t met for a parametric test of the cheating data either.  So we&#39;ll conduct a permutation test of these data as well.</p>
+
+<pre><code class="r">B &lt;- 1000
+Tobs_cheat &lt;- chisq.test(lietable)$statistic
+Tstar_cheat &lt;- matrix(NA, nrow = 1, ncol = B)
+for(i in 1:B) {
+  Tstar_cheat[i] &lt;- chisq.test(tally(~shuffle(LIEEXAM) + LIEPAPER, data = cheating))$statistic
+}
+hist(Tstar_cheat, main = &quot;Permutation Distribution for Cheating Data&quot;, 
+     xlab = &quot;Permuted Test Statistics&quot;, xlim = c(0, 60))
+abline(v = Tobs_cheat, col = &quot;red&quot;, lwd = 2)
+</code></pre>
+
+<p><img src="assets/fig/cheat_dist-1.png" title="plot of chunk cheat_dist" alt="plot of chunk cheat_dist" style="display: block; margin: auto;" /></p>
+
+  <button class="quiz-submit btn btn-primary">Submit</button>
+  <button class="quiz-toggle-hint btn btn-info">Show Hint</button>
+  <button class="quiz-show-answer btn btn-success">Show Answer</button>
+  <button class="quiz-clear btn btn-danger">Clear</button>
+  
+  </div>
+  </div>
+</div>
+<div class="section" id="slide-14">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h2>Take Home Question #3</h2>
+    <hr>
+    </div>
+  <p>3) What does the <code>shuffle</code> function do (ask if you are not sure)?  Explain how the <code>shuffle</code> function allows us to perform a permutation test.</p>
+
+  </div>
+</div>
+<div class="section" id="slide-15">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h2>Take Home Question #4</h2>
+    <hr>
+    </div>
+  <p>4) Look back at the histograms.  Are any of the permuted test statistics anywhere close to as extreme as the observed test statistic?  Based on your answer, approximately what is the p-value?</p>
+
+  </div>
+</div>
+<div class="section" id="slide-16">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h2>Examining the Residuals</h2>
+    <hr>
+    </div>
+  <p>Recall that a residual is defined as \(observed - expected\).  So if a cell has a positive residual, then <em>there were more observations in this cell than we&#39;d expect if the null hypothesis was true (i.e. if the two variables aren&#39;t related)</em>.  <strong>Standardized residuals</strong> put the residuals on a common scale.  So we can look at standardized residuals to see which cells are most different.  </p>
+
+<p>As a general rule of thumb, </p>
+
+<ul>
+<li>standardized residuals smaller in magnitude than 2 (i.e. between -2 and 2) are not that interesting</li>
+<li>greater than 2 but less than 4 are interesting and are suggestive of a relationship</li>
+<li>larger than 4 means that this cell is very unusual</li>
+</ul>
+
+<h2>Voting Data</h2>
+
+<p>Blue indicates positive residuals (more than expected) and red indicates negative residuals (less than expected).  So a lot more people in Party 1 and 2 voted for Gore than would be expected if there was no relationship between the two variables.  Likewise, a lot fewer people in Parties 5, 6, and 7 voted for Gore than would be expected under the null hypothesis.  About as many people in Party 4 voted for Gore as  we&#39;d expect.  The opposite relationship is true for Bush.</p>
+
+<pre><code class="r">mosaicplot(electable, shade = T)
+</code></pre>
+
+<p><img src="assets/fig/vote_resid-1.png" title="plot of chunk vote_resid" alt="plot of chunk vote_resid" style="display: block; margin: auto;" /></p>
+
+  </div>
+</div>
+<div class="section" id="slide-17">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h2>Conclusion</h2>
+    <hr>
+    </div>
+  <h2>Voting Data</h2>
+
+<p>There is strong evidence that there is a relationship between political party and voting status.</p>
+
+  </div>
+</div>
+<div class="section" id="slide-18">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h2>Scope of Inference</h2>
+    <hr>
+    </div>
+  <h2>Voting Data</h2>
+
+<p>These voters were randomly selected so we can infer these results to all American voters.  Political party was not randomly assign so this study cannot say that political party causes differences in voting patterns.</p>
+
+  </div>
+</div>
+<div class="section" id="slide-19">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h2>Additional Take Home Questions</h2>
+    <hr>
+    </div>
+  <p>5) Write a conclusion <em>in the context of the problem</em> for the results of the Chi-Square test for the voting data.</p>
+
+<p>6) Take a look at the mosaic plot of the cheating data below.<br>
+    - Which cells had more counts in them than expected?<br>
+    - Which cells had fewer?<br>
+    - Which cell had the largest standardized residual?</p>
+
+<pre><code class="r">mosaicplot(~LIEEXAM + LIEPAPER, data = cheating, shade = T)
+</code></pre>
+
+<p><img src="assets/fig/cheat_resid-1.png" title="plot of chunk cheat_resid" alt="plot of chunk cheat_resid" style="display: block; margin: auto;" /></p>
+
+<p>7) What is the scope of inference for the Cheating Data?</p>
+
+<p>8) Why does random assignment of subjects to treatments allow us to make causal inferences?</p>
+
+<p>Hint: Consider lurking variables</p>
+
+  </div>
+</div>
+        </div>  <!-- end content -->
+      
+      </div> <!-- end container -->
+    </div>  <!-- end content row -->
+
+   
+    <!-- Footer -->
+    <footer id="top" role="footer">
+      <div class="container-fluid">
+        <span class="text-muted">Built by <a href="http://slidify.org/">Slidify</a>.  Styled using <a href="http://getbootstrap.com/">Bootstrap</a>.  Hosted on <a href="https://github.com/">GitHub</a>.</span>
+      </div>
+    </footer>
+
+    </div>  <!-- end container -->
+  </div>    <!-- end main row -->
+</body>
+  <script src="libraries/frameworks/bootstrap3/js/bootstrap.min.js"></script>
+  <script src="libraries/frameworks/bootstrap3/js/plugins.js"></script>
+  <script src="libraries/frameworks/bootstrap3/js/main.js"></script>
+  <!-- Load Javascripts for Widgets -->
+  <script src="libraries/widgets/quiz/js/jquery.quiz.js"></script>
+<script src="libraries/widgets/quiz/js/mustache.min.js"></script>
+<script src="libraries/widgets/quiz/js/quiz-app.js"></script>
+<script src="libraries/widgets/bootstrap/js/bootstrap.min.js"></script>
+<script src="libraries/widgets/bootstrap/js/bootbox.min.js"></script>
+
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<script>  
+  $(function (){ 
+    $("#example").popover(); 
+    $("[rel='tooltip']").tooltip(); 
+  });  
+  </script>  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

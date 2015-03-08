@@ -1,0 +1,12 @@
+base
+scatterplot3d
+MASS
+poLCA
+car
+dplyr
+lattice
+ggplot2
+mosaic
+slidify
+knitr
+rCharts
