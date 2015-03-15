@@ -27,7 +27,7 @@ github:
 
 This activity works through Chapter 4.  It uses two datasets: the voting data (which we have covered in class) and the lying and cheating data from Section 4.9 of the book.  All tests will be done at the $\alpha = 0.05$ significance level.
 
-There will be 8 questions for your to turn in.  Some are located throughout the activity and some are located at the end.
+There will be 6 questions for your to turn in.  Some are located throughout the activity and some are located at the end.
 
 ---
 # Voting Data
@@ -277,7 +277,9 @@ chisq.test(lietable)$expected
 You should get that three of the assumptions are met and that one is not.
 
 *** .explanation
-The Expected Counts are not all greater than 5 so the assumptions for a parametric test are not met.  As a result, we will use a non-parametric test.
+* Without additional information, we have to assume that the data are met.
+* Both lying on papers and lying on tests have Yes/No answers so these data are categorical.
+* The Expected Counts are not all greater than 5 so the assumptions for a parametric test are not met.  As a result, we will use a non-parametric test.
 
 --- &multitext
 # Contributions to the Test Statistic
@@ -366,10 +368,13 @@ $df = (#rows - 1) \times (#columns - 1) = (2-1) \times (2-1) = 1$
 4. <span class = "answer">0.0</span
 $4.4 * 10^{-14} \approx 0$
 
+<!--
+COMMENTED OUT!
 ---
-# Take Home Question #2
+# Take Home Question #
 
-2) Why is this a parametric test?
+1) Why is this a parametric test?
+-->
 
 --- &multitext
 # Permutation Distribution
@@ -389,12 +394,12 @@ for(i in 1:B) {
   Tstar[i] <- chisq.test(permuted_voting)$statistic
 }
 hist(Tstar, main = "Permutation Distribution for Voting Data", 
-     xlab = "Permuted Test Statistics", xlim = c(0, 770))
+     xlab = "Permuted Test Statistics", binwidth = 3)
 ```
 
 <img src="assets/fig/vote_dist-1.png" title="plot of chunk vote_dist" alt="plot of chunk vote_dist" style="display: block; margin: auto;" />
 
-We want to compare the observed test statistic to this distribution so we'll plot it in red.
+We want to compare the observed test statistic to this distribution so we'll plot it in red.  Note that the observed test statistic is much more extreme than any of the permutations so the x-axis has changed.
 
 
 ```r
@@ -426,14 +431,14 @@ abline(v = Tobs_cheat, col = "red", lwd = 2)
 <img src="assets/fig/cheat_dist-1.png" title="plot of chunk cheat_dist" alt="plot of chunk cheat_dist" style="display: block; margin: auto;" />
 
 ---
-# Take Home Question #3
+# Take Home Question #2
 
-3) What does the `shuffle` function do (ask if you are not sure)?  Explain how the `shuffle` function allows us to perform a permutation test.
+2) What does the `shuffle` function do (ask if you are not sure)?  Explain how the `shuffle` function allows us to perform a permutation test.
 
 ---
-# Take Home Question #4
+# Take Home Question #3
 
-4) Look back at the histograms.  Are any of the permuted test statistics anywhere close to as extreme as the observed test statistic?  Based on your answer, approximately what is the p-value?
+3) Look back at the histograms.  Are any of the permuted test statistics anywhere close to as extreme as the observed test statistic?  Based on your answer, approximately what is the p-value?
 
 ---
 ## Examining the Residuals
@@ -474,9 +479,9 @@ These voters were randomly selected so we can infer these results to all America
 ---
 # Additional Take Home Questions
 
-5) Write a conclusion *in the context of the problem* for the results of the Chi-Square test for the voting data.
+4) Write a conclusion *in the context of the problem* for the results of the Chi-Square test for the voting data.
 
-6) Take a look at the mosaic plot of the cheating data below.  
+5) Take a look at the mosaic plot of the cheating data below.  
     - Which cells had more counts in them than expected?  
     - Which cells had fewer?  
     - Which cell had the largest standardized residual?
@@ -488,11 +493,7 @@ mosaicplot(~LIEEXAM + LIEPAPER, data = cheating, shade = T)
 
 <img src="assets/fig/cheat_resid-1.png" title="plot of chunk cheat_resid" alt="plot of chunk cheat_resid" style="display: block; margin: auto;" />
 
-7) What is the scope of inference for the Cheating Data?
-
-8) Why does random assignment of subjects to treatments allow us to make causal inferences?
-
-Hint: Consider lurking variables
+6) What is the scope of inference for the Cheating Data?
 
 
 

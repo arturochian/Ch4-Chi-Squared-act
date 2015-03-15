@@ -43,7 +43,7 @@ take_home <- 0
 
 This activity works through Chapter 4.  It uses two datasets: the voting data (which we have covered in class) and the lying and cheating data from Section 4.9 of the book.  All tests will be done at the $\alpha = 0.05$ significance level.
 
-There will be 8 questions for your to turn in.  Some are located throughout the activity and some are located at the end.
+There will be 6 questions for your to turn in.  Some are located throughout the activity and some are located at the end.
 
 ---
 # Voting Data
@@ -236,7 +236,9 @@ chisq.test(lietable)$expected
 You should get that three of the assumptions are met and that one is not.
 
 *** .explanation
-The Expected Counts are not all greater than 5 so the assumptions for a parametric test are not met.  As a result, we will use a non-parametric test.
+* Without additional information, we have to assume that the data are met.
+* Both lying on papers and lying on tests have Yes/No answers so these data are categorical.
+* The Expected Counts are not all greater than 5 so the assumptions for a parametric test are not met.  As a result, we will use a non-parametric test.
 
 --- &multitext
 # Contributions to the Test Statistic
@@ -307,10 +309,13 @@ $df = (#rows - 1) \times (#columns - 1) = (2-1) \times (2-1) = 1$
 4. <span class = "answer">0.0</span
 $4.4 * 10^{-14} \approx 0$
 
+<!--
+COMMENTED OUT!
 ---
-# Take Home Question #`r take_home <- take_home + 1; take_home`
+# Take Home Question #`r #take_home <- take_home + 1; take_home`
 
 `r take_home`) Why is this a parametric test?
+-->
 
 --- &multitext
 # Permutation Distribution
@@ -329,10 +334,10 @@ for(i in 1:B) {
   Tstar[i] <- chisq.test(permuted_voting)$statistic
 }
 hist(Tstar, main = "Permutation Distribution for Voting Data", 
-     xlab = "Permuted Test Statistics", xlim = c(0, 770))
+     xlab = "Permuted Test Statistics")
 ```
 
-We want to compare the observed test statistic to this distribution so we'll plot it in red.
+We want to compare the observed test statistic to this distribution so we'll plot it in red.  Note that the observed test statistic is much more extreme than any of the permutations so the x-axis has changed.
 
 ```{r vote_dist_with_stat, warning=FALSE, cache=TRUE}
 Tobs <- chisq.test(electable)$statistic
@@ -415,10 +420,6 @@ mosaicplot(~LIEEXAM + LIEPAPER, data = cheating, shade = T)
 ```
 
 `r take_home <- take_home + 1; take_home`) What is the scope of inference for the Cheating Data?
-
-`r take_home <- take_home + 1; take_home`) Why does random assignment of subjects to treatments allow us to make causal inferences?
-
-Hint: Consider lurking variables
 
 
 

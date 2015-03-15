@@ -90,21 +90,19 @@ SIDEBAR-NAV
 
                 <li><a href = "#slide-11"> Testing Statistic, Distribution and P-value</a></li>
 
-                <li><a href = "#slide-12"> Take Home Question #2</a></li>
+                <li><a href = "#slide-12"> Permutation Distribution</a></li>
 
-                <li><a href = "#slide-13"> Permutation Distribution</a></li>
+                <li><a href = "#slide-13"> Take Home Question #2</a></li>
 
                 <li><a href = "#slide-14"> Take Home Question #3</a></li>
 
-                <li><a href = "#slide-15"> Take Home Question #4</a></li>
+                <li><a href = "#slide-15"> Examining the Residuals</a></li>
 
-                <li><a href = "#slide-16"> Examining the Residuals</a></li>
+                <li><a href = "#slide-16"> Conclusion</a></li>
 
-                <li><a href = "#slide-17"> Conclusion</a></li>
+                <li><a href = "#slide-17"> Scope of Inference</a></li>
 
-                <li><a href = "#slide-18"> Scope of Inference</a></li>
-
-                <li><a href = "#slide-19"> Additional Take Home Questions</a></li>
+                <li><a href = "#slide-18"> Additional Take Home Questions</a></li>
 						  </ul>
 					  </nav>
 				  </div>
@@ -122,7 +120,7 @@ PAGE CONTENT
     </div>
   <p>This activity works through Chapter 4.  It uses two datasets: the voting data (which we have covered in class) and the lying and cheating data from Section 4.9 of the book.  All tests will be done at the \(\alpha = 0.05\) significance level.</p>
 
-<p>There will be 8 questions for your to turn in.  Some are located throughout the activity and some are located at the end.</p>
+<p>There will be 6 questions for your to turn in.  Some are located throughout the activity and some are located at the end.</p>
 
   </div>
 </div>
@@ -451,7 +449,11 @@ This is in the fourth row, second column so we do \(34*38/319 = 4\)</p></li>
 
 </div>
 <div class="quiz-explanation">
-  <p>The Expected Counts are not all greater than 5 so the assumptions for a parametric test are not met.  As a result, we will use a non-parametric test.</p>
+  <ul>
+<li>Without additional information, we have to assume that the data are met.</li>
+<li>Both lying on papers and lying on tests have Yes/No answers so these data are categorical.</li>
+<li>The Expected Counts are not all greater than 5 so the assumptions for a parametric test are not met.  As a result, we will use a non-parametric test.</li>
+</ul>
 
 </div>
 </div>
@@ -571,21 +573,19 @@ This test uses a \(\chi^2\) distribution.</li>
 \(4.4 * 10^{-14} \approx 0\)</li>
 </ol>
 
+<!--
+COMMENTED OUT!
+---
+# Take Home Question #
+
+1) Why is this a parametric test?
+-->
+
 </div>
 </div>
   </div>
 </div>
 <div class="section" id="slide-12">
-  <div class="container-fluid">
-    <div class="page-header">
-      <h2>Take Home Question #2</h2>
-    <hr>
-    </div>
-  <p>2) Why is this a parametric test?</p>
-
-  </div>
-</div>
-<div class="section" id="slide-13">
   <div class="container-fluid">
     <div class="page-header">
       <h2>Permutation Distribution</h2>
@@ -606,12 +606,12 @@ for(i in 1:B) {
   Tstar[i] &lt;- chisq.test(permuted_voting)$statistic
 }
 hist(Tstar, main = &quot;Permutation Distribution for Voting Data&quot;, 
-     xlab = &quot;Permuted Test Statistics&quot;, xlim = c(0, 770))
+     xlab = &quot;Permuted Test Statistics&quot;, binwidth = 3)
 </code></pre>
 
 <p><img src="assets/fig/vote_dist-1.png" title="plot of chunk vote_dist" alt="plot of chunk vote_dist" style="display: block; margin: auto;" /></p>
 
-<p>We want to compare the observed test statistic to this distribution so we&#39;ll plot it in red.</p>
+<p>We want to compare the observed test statistic to this distribution so we&#39;ll plot it in red.  Note that the observed test statistic is much more extreme than any of the permutations so the x-axis has changed.</p>
 
 <pre><code class="r">Tobs &lt;- chisq.test(electable)$statistic
 hist(Tstar, main = &quot;Permutation Distribution for Voting Data&quot;, 
@@ -646,27 +646,27 @@ abline(v = Tobs_cheat, col = &quot;red&quot;, lwd = 2)
   </div>
   </div>
 </div>
+<div class="section" id="slide-13">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h2>Take Home Question #2</h2>
+    <hr>
+    </div>
+  <p>2) What does the <code>shuffle</code> function do (ask if you are not sure)?  Explain how the <code>shuffle</code> function allows us to perform a permutation test.</p>
+
+  </div>
+</div>
 <div class="section" id="slide-14">
   <div class="container-fluid">
     <div class="page-header">
       <h2>Take Home Question #3</h2>
     <hr>
     </div>
-  <p>3) What does the <code>shuffle</code> function do (ask if you are not sure)?  Explain how the <code>shuffle</code> function allows us to perform a permutation test.</p>
+  <p>3) Look back at the histograms.  Are any of the permuted test statistics anywhere close to as extreme as the observed test statistic?  Based on your answer, approximately what is the p-value?</p>
 
   </div>
 </div>
 <div class="section" id="slide-15">
-  <div class="container-fluid">
-    <div class="page-header">
-      <h2>Take Home Question #4</h2>
-    <hr>
-    </div>
-  <p>4) Look back at the histograms.  Are any of the permuted test statistics anywhere close to as extreme as the observed test statistic?  Based on your answer, approximately what is the p-value?</p>
-
-  </div>
-</div>
-<div class="section" id="slide-16">
   <div class="container-fluid">
     <div class="page-header">
       <h2>Examining the Residuals</h2>
@@ -693,7 +693,7 @@ abline(v = Tobs_cheat, col = &quot;red&quot;, lwd = 2)
 
   </div>
 </div>
-<div class="section" id="slide-17">
+<div class="section" id="slide-16">
   <div class="container-fluid">
     <div class="page-header">
       <h2>Conclusion</h2>
@@ -705,7 +705,7 @@ abline(v = Tobs_cheat, col = &quot;red&quot;, lwd = 2)
 
   </div>
 </div>
-<div class="section" id="slide-18">
+<div class="section" id="slide-17">
   <div class="container-fluid">
     <div class="page-header">
       <h2>Scope of Inference</h2>
@@ -717,15 +717,15 @@ abline(v = Tobs_cheat, col = &quot;red&quot;, lwd = 2)
 
   </div>
 </div>
-<div class="section" id="slide-19">
+<div class="section" id="slide-18">
   <div class="container-fluid">
     <div class="page-header">
       <h2>Additional Take Home Questions</h2>
     <hr>
     </div>
-  <p>5) Write a conclusion <em>in the context of the problem</em> for the results of the Chi-Square test for the voting data.</p>
+  <p>4) Write a conclusion <em>in the context of the problem</em> for the results of the Chi-Square test for the voting data.</p>
 
-<p>6) Take a look at the mosaic plot of the cheating data below.<br>
+<p>5) Take a look at the mosaic plot of the cheating data below.<br>
     - Which cells had more counts in them than expected?<br>
     - Which cells had fewer?<br>
     - Which cell had the largest standardized residual?</p>
@@ -735,11 +735,7 @@ abline(v = Tobs_cheat, col = &quot;red&quot;, lwd = 2)
 
 <p><img src="assets/fig/cheat_resid-1.png" title="plot of chunk cheat_resid" alt="plot of chunk cheat_resid" style="display: block; margin: auto;" /></p>
 
-<p>7) What is the scope of inference for the Cheating Data?</p>
-
-<p>8) Why does random assignment of subjects to treatments allow us to make causal inferences?</p>
-
-<p>Hint: Consider lurking variables</p>
+<p>6) What is the scope of inference for the Cheating Data?</p>
 
   </div>
 </div>
