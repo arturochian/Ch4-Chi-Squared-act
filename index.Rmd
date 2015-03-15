@@ -317,7 +317,7 @@ COMMENTED OUT!
 `r take_home`) Why is this a parametric test?
 -->
 
---- &multitext
+--- 
 # Permutation Distribution
 
 ## Voting Data

@@ -376,7 +376,7 @@ COMMENTED OUT!
 1) Why is this a parametric test?
 -->
 
---- &multitext
+--- 
 # Permutation Distribution
 
 ## Voting Data
@@ -394,7 +394,7 @@ for(i in 1:B) {
   Tstar[i] <- chisq.test(permuted_voting)$statistic
 }
 hist(Tstar, main = "Permutation Distribution for Voting Data", 
-     xlab = "Permuted Test Statistics", binwidth = 3)
+     xlab = "Permuted Test Statistics")
 ```
 
 <img src="assets/fig/vote_dist-1.png" title="plot of chunk vote_dist" alt="plot of chunk vote_dist" style="display: block; margin: auto;" />

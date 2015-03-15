@@ -591,8 +591,6 @@ COMMENTED OUT!
       <h2>Permutation Distribution</h2>
     <hr>
     </div>
-  
-<div class="quiz-text quiz-multitext well">
   <h2>Voting Data</h2>
 
 <p>Since the assumptions aren&#39;t met for a parametric test, we should perform a permutation test.  The following code constructs the permutation distribution for the voting data.</p>
@@ -606,7 +604,7 @@ for(i in 1:B) {
   Tstar[i] &lt;- chisq.test(permuted_voting)$statistic
 }
 hist(Tstar, main = &quot;Permutation Distribution for Voting Data&quot;, 
-     xlab = &quot;Permuted Test Statistics&quot;, binwidth = 3)
+     xlab = &quot;Permuted Test Statistics&quot;)
 </code></pre>
 
 <p><img src="assets/fig/vote_dist-1.png" title="plot of chunk vote_dist" alt="plot of chunk vote_dist" style="display: block; margin: auto;" /></p>
@@ -638,12 +636,6 @@ abline(v = Tobs_cheat, col = &quot;red&quot;, lwd = 2)
 
 <p><img src="assets/fig/cheat_dist-1.png" title="plot of chunk cheat_dist" alt="plot of chunk cheat_dist" style="display: block; margin: auto;" /></p>
 
-  <button class="quiz-submit btn btn-primary">Submit</button>
-  <button class="quiz-toggle-hint btn btn-info">Show Hint</button>
-  <button class="quiz-show-answer btn btn-success">Show Answer</button>
-  <button class="quiz-clear btn btn-danger">Clear</button>
-  
-  </div>
   </div>
 </div>
 <div class="section" id="slide-13">
