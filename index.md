@@ -2,7 +2,7 @@
 title       : Chi-Square Activity
 subtitle    : Ch 4 Chi-Square Testing
 author      : Stay 217
-today       : " 2015-03-08 "
+today       : " 2015-03-15 "
 framework   : bootstrap3
 highlighter : highlight.js 
 hitheme     : github      
@@ -18,7 +18,7 @@ assets      :
     - "http://fonts.googleapis.com/css?family=Vollkorn"
     - "http://fonts.googleapis.com/css?family=Droid%20Sans%20Mono"
 github:
-  website: "https://github.com/kferris10/testing-slidify"
+  website: "https://github.com/kferris10/Ch4-Chi-Squared-act"
 ---
 
 
