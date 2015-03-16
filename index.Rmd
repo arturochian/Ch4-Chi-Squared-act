@@ -1,7 +1,7 @@
 ---
 title       : Chi-Square Activity
 subtitle    : Ch 4 Chi-Square Testing
-author      : Stay 217
+author      : Stat 217
 today       : " `r Sys.Date()` "
 framework   : bootstrap3
 highlighter : highlight.js 
@@ -47,7 +47,7 @@ Upon completing this activity, you should feel comfortable:
 * determining homogeneity vs independence
 * using mosaic plots
 * setting up the hypotheses
-* determing expected cell counts and contributions to the test statistic
+* determining expected cell counts and contributions to the test statistic
 * assessing the assumptions
 * performing parametric and non-parametric chi-squared tests
 * writing conclusions in the context of the problem
@@ -281,7 +281,7 @@ $(\frac{265 - 251}{\sqrt{251}})^2 \approx 1$
 $(\frac{18 - 4}{\sqrt{4}})^2 = 49$
 
 --- &multitext
-# Testing Statistic, Distribution and P-value
+# Test Statistic, Distribution and P-value
 
 ## Voting Data
 
@@ -316,7 +316,7 @@ The "X-squared" part tell us the test statistic.
 This test uses a $\chi^2$ distribution.
 3. <span class = "answer">1</span>
 $df = (#rows - 1) \times (#columns - 1) = (2-1) \times (2-1) = 1$
-4. <span class = "answer">0.0</span
+4. <span class = "answer">0.0</span>
 $4.4 * 10^{-14} \approx 0$
 
 <!--
