@@ -178,8 +178,8 @@ Which of the following are the correct assumptions for a Chi-Squared test?  Make
 3. Equal Variance
 4. _Both variables are categorical_
 5. Any Expected Count
-6. _Expected Counts $> 5$ for a parametric test_
-7. _Expected Counts $> 0$ for a non-parametric test_
+6. _Expected Counts greater than 5 for a parametric test_
+7. _Expected Counts greater than 0 for a non-parametric test_
 
 *** .hint
 Remember that both variables are categorical.  So normality and equal variance don't make sense for these data.
