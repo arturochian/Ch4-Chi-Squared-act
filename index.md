@@ -2,7 +2,7 @@
 title       : Chi-Square Activity
 subtitle    : Ch 4 Chi-Square Testing
 author      : Stay 217
-today       : " 2015-03-15 "
+today       : " 2015-03-16 "
 framework   : bootstrap3
 highlighter : highlight.js 
 hitheme     : github      
@@ -26,6 +26,16 @@ github:
 # Introduction
 
 This activity works through Chapter 4.  It uses two datasets: the voting data (which we have covered in class) and the lying and cheating data from Section 4.9 of the book.  All tests will be done at the $\alpha = 0.05$ significance level.
+
+Upon completing this activity, you should feel comfortable:
+* determining homogeneity vs independence
+* using mosaic plots
+* setting up the hypotheses
+* determing expected cell counts and contributions to the test statistic
+* assessing the assumptions
+* performing parametric and non-parametric chi-squared tests
+* writing conclusions in the context of the problem
+* examining residuals
 
 There will be 6 questions for your to turn in.  Some are located throughout the activity and some are located at the end.
 

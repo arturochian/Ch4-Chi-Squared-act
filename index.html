@@ -53,7 +53,7 @@
         <h1>Chi-Square Activity</h1>
         <h3>Ch 4 Chi-Square Testing</h3>
         <h3>Stay 217</h3>
-        <h3> 2015-03-15 </h3>
+        <h3> 2015-03-16 </h3>
       </div>
     </div>
         
@@ -113,22 +113,32 @@ PAGE CONTENT
 -->
         <div class = "col-md-9 col-sm-12 push-left">
           <div class="section" id="slide-1">
-  <div class="container-fluid">
     <div class="page-header">
       <h2>Introduction</h2>
-    <hr>
+      <hr>
     </div>
   <p>This activity works through Chapter 4.  It uses two datasets: the voting data (which we have covered in class) and the lying and cheating data from Section 4.9 of the book.  All tests will be done at the \(\alpha = 0.05\) significance level.</p>
 
+<p>Upon completing this activity, you should feel comfortable:</p>
+
+<ul>
+<li>determining homogeneity vs independence</li>
+<li>using mosaic plots</li>
+<li>setting up the hypotheses</li>
+<li>determing expected cell counts and contributions to the test statistic</li>
+<li>assessing the assumptions</li>
+<li>performing parametric and non-parametric chi-squared tests</li>
+<li>writing conclusions in the context of the problem</li>
+<li>examining residuals</li>
+</ul>
+
 <p>There will be 6 questions for your to turn in.  Some are located throughout the activity and some are located at the end.</p>
 
-  </div>
 </div>
 <div class="section" id="slide-2">
-  <div class="container-fluid">
     <div class="page-header">
       <h2>Voting Data</h2>
-    <hr>
+      <hr>
     </div>
   <p>A national random sample was obtained related to the 2000 Presidential Election with the party affiliations and voting results recorded for each subject.  Information on 1151 people was recorded.  Since these people were selected from the entire population of voters, and independence test is appropriate.</p>
 
@@ -160,13 +170,11 @@ electable
 
 <p>Looking at the contingency table, it appears that people in Parties 1, 2, and 3 are much more likely to vote for Gore so these are probably the more liberal parties.</p>
 
-  </div>
 </div>
 <div class="section" id="slide-3">
-  <div class="container-fluid">
     <div class="page-header">
       <h2>Cheating Data</h2>
-    <hr>
+      <hr>
     </div>
   
 <div class="quiz quiz-single well ">
@@ -211,13 +219,11 @@ lietable
 
 </div>
 </div>
-  </div>
 </div>
 <div class="section" id="slide-4">
-  <div class="container-fluid">
     <div class="page-header">
       <h2>Mosaic Plots</h2>
-    <hr>
+      <hr>
     </div>
   <h2>Plot for the Voting Data</h2>
 
@@ -237,23 +243,19 @@ lietable
 
 <p><img src="assets/fig/cheat_plot-1.png" title="plot of chunk cheat_plot" alt="plot of chunk cheat_plot" style="display: block; margin: auto;" /></p>
 
-  </div>
 </div>
 <div class="section" id="slide-5">
-  <div class="container-fluid">
     <div class="page-header">
       <h2>Take Home Question #1</h2>
-    <hr>
+      <hr>
     </div>
   <p>1) Use the mosaic plot to describe the cheating data.  Make sure that you note whether the two variables appear to be related.</p>
 
-  </div>
 </div>
 <div class="section" id="slide-6">
-  <div class="container-fluid">
     <div class="page-header">
       <h2>Hypothesis Tests</h2>
-    <hr>
+      <hr>
     </div>
   
 <div class="quiz quiz-single well ">
@@ -290,13 +292,11 @@ lietable
 
 </div>
 </div>
-  </div>
 </div>
 <div class="section" id="slide-7">
-  <div class="container-fluid">
     <div class="page-header">
       <h2>Assumptions</h2>
-    <hr>
+      <hr>
     </div>
   
 <div class="quiz quiz-multiple well" data-individual>
@@ -326,13 +326,11 @@ lietable
 
 </div>
 </div>
-  </div>
 </div>
 <div class="section" id="slide-8">
-  <div class="container-fluid">
     <div class="page-header">
       <h2>Expected Counts</h2>
-    <hr>
+      <hr>
     </div>
   
 <div class="quiz-text quiz-multitext well">
@@ -385,13 +383,11 @@ This is in the fourth row, second column so we do \(34*38/319 = 4\)</p></li>
 
 </div>
 </div>
-  </div>
 </div>
 <div class="section" id="slide-9">
-  <div class="container-fluid">
     <div class="page-header">
       <h2>Assessing the Assumptions</h2>
-    <hr>
+      <hr>
     </div>
   
 <div class="quiz quiz-multiple well" data-individual>
@@ -457,13 +453,11 @@ This is in the fourth row, second column so we do \(34*38/319 = 4\)</p></li>
 
 </div>
 </div>
-  </div>
 </div>
 <div class="section" id="slide-10">
-  <div class="container-fluid">
     <div class="page-header">
       <h2>Contributions to the Test Statistic</h2>
-    <hr>
+      <hr>
     </div>
   
 <div class="quiz-text quiz-multitext well">
@@ -505,13 +499,11 @@ This is in the fourth row, second column so we do \(34*38/319 = 4\)</p></li>
 
 </div>
 </div>
-  </div>
 </div>
 <div class="section" id="slide-11">
-  <div class="container-fluid">
     <div class="page-header">
       <h2>Testing Statistic, Distribution and P-value</h2>
-    <hr>
+      <hr>
     </div>
   
 <div class="quiz-text quiz-multitext well">
@@ -583,13 +575,11 @@ COMMENTED OUT!
 
 </div>
 </div>
-  </div>
 </div>
 <div class="section" id="slide-12">
-  <div class="container-fluid">
     <div class="page-header">
       <h2>Permutation Distribution</h2>
-    <hr>
+      <hr>
     </div>
   <h2>Voting Data</h2>
 
@@ -636,33 +626,27 @@ abline(v = Tobs_cheat, col = &quot;red&quot;, lwd = 2)
 
 <p><img src="assets/fig/cheat_dist-1.png" title="plot of chunk cheat_dist" alt="plot of chunk cheat_dist" style="display: block; margin: auto;" /></p>
 
-  </div>
 </div>
 <div class="section" id="slide-13">
-  <div class="container-fluid">
     <div class="page-header">
       <h2>Take Home Question #2</h2>
-    <hr>
+      <hr>
     </div>
   <p>2) What does the <code>shuffle</code> function do (ask if you are not sure)?  Explain how the <code>shuffle</code> function allows us to perform a permutation test.</p>
 
-  </div>
 </div>
 <div class="section" id="slide-14">
-  <div class="container-fluid">
     <div class="page-header">
       <h2>Take Home Question #3</h2>
-    <hr>
+      <hr>
     </div>
   <p>3) Look back at the histograms.  Are any of the permuted test statistics anywhere close to as extreme as the observed test statistic?  Based on your answer, approximately what is the p-value?</p>
 
-  </div>
 </div>
 <div class="section" id="slide-15">
-  <div class="container-fluid">
     <div class="page-header">
       <h2>Examining the Residuals</h2>
-    <hr>
+      <hr>
     </div>
   <p>Recall that a residual is defined as \(observed - expected\).  So if a cell has a positive residual, then <em>there were more observations in this cell than we&#39;d expect if the null hypothesis was true (i.e. if the two variables aren&#39;t related)</em>.  <strong>Standardized residuals</strong> put the residuals on a common scale.  So we can look at standardized residuals to see which cells are most different.  </p>
 
@@ -683,37 +667,31 @@ abline(v = Tobs_cheat, col = &quot;red&quot;, lwd = 2)
 
 <p><img src="assets/fig/vote_resid-1.png" title="plot of chunk vote_resid" alt="plot of chunk vote_resid" style="display: block; margin: auto;" /></p>
 
-  </div>
 </div>
 <div class="section" id="slide-16">
-  <div class="container-fluid">
     <div class="page-header">
       <h2>Conclusion</h2>
-    <hr>
+      <hr>
     </div>
   <h2>Voting Data</h2>
 
 <p>There is strong evidence that there is a relationship between political party and voting status.</p>
 
-  </div>
 </div>
 <div class="section" id="slide-17">
-  <div class="container-fluid">
     <div class="page-header">
       <h2>Scope of Inference</h2>
-    <hr>
+      <hr>
     </div>
   <h2>Voting Data</h2>
 
 <p>These voters were randomly selected so we can infer these results to all American voters.  Political party was not randomly assign so this study cannot say that political party causes differences in voting patterns.</p>
 
-  </div>
 </div>
 <div class="section" id="slide-18">
-  <div class="container-fluid">
     <div class="page-header">
       <h2>Additional Take Home Questions</h2>
-    <hr>
+      <hr>
     </div>
   <p>4) Write a conclusion <em>in the context of the problem</em> for the results of the Chi-Square test for the voting data.</p>
 
@@ -729,7 +707,6 @@ abline(v = Tobs_cheat, col = &quot;red&quot;, lwd = 2)
 
 <p>6) What is the scope of inference for the Cheating Data?</p>
 
-  </div>
 </div>
         </div>  <!-- end content -->
       
